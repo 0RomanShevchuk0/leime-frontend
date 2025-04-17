@@ -11,7 +11,6 @@ class MemesApi {
 
   async updateMeme(id: number, body: MemeFormData): Promise<Meme> {
     const response = await axiosClassic.patch<Meme>(`${this.baseUrl}/${id}`, body)
-    console.log(" MemesApiupdateMeme response:", response)
     return response.data
   }
 }

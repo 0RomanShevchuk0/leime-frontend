@@ -45,8 +45,9 @@ export const MemesTable: FC<MemesTableProps> = ({ memes }) => {
       <Table>
         <TableHeader>
           <TableColumn className="w-1/8">ID</TableColumn>
-          <TableColumn className="w-4/8">Title</TableColumn>
-          <TableColumn className="w-2/8">Likes</TableColumn>
+          <TableColumn className="w-3/8">Title</TableColumn>
+          <TableColumn className="w-2/8">Link</TableColumn>
+          <TableColumn className="w-1/8">Likes</TableColumn>
           <TableColumn className="w-1/8">Actions</TableColumn>
         </TableHeader>
         <TableBody>
@@ -54,6 +55,7 @@ export const MemesTable: FC<MemesTableProps> = ({ memes }) => {
             <TableRow key={meme.id}>
               <TableCell>{meme.id}</TableCell>
               <TableCell>{meme.title}</TableCell>
+              <TableCell>{meme.image_url}</TableCell>
               <TableCell>{meme.likes}</TableCell>
               <TableCell>
                 <Button size="sm" variant="ghost" onPress={() => handleEdit(meme)}>
