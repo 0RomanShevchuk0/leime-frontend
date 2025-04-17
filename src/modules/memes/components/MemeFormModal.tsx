@@ -45,9 +45,7 @@ const MemeFormModal: FC<MemeFormModalProps> = ({ meme, isOpen, onSave, onClose }
   }
 
   useEffect(() => {
-    if (!isOpen) {
-      reset(memeFormValues(meme))
-    }
+    reset(memeFormValues(meme))
   }, [isOpen, meme, reset])
 
   return (
