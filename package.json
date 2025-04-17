@@ -1,0 +1,45 @@
+{
+  "name": "leime",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@heroui/button": "2.2.18-beta.1",
+    "@heroui/react": "^2.7.6",
+    "@heroui/system": "2.4.14-beta.1",
+    "@heroui/theme": "2.4.14-beta.1",
+    "@tailwindcss/vite": "^4.1.4",
+    "@tanstack/react-query": "^5.74.3",
+    "@tanstack/react-router": "^1.116.0",
+    "axios": "^1.8.4",
+    "framer-motion": "12.7.3",
+    "hero-ui": "^6.0.1",
+    "lucide-react": "^0.488.0",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-hook-form": "^7.55.0",
+    "react-hot-toast": "^2.5.2",
+    "tailwindcss": "4.1.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.22.0",
+    "@tanstack/router-plugin": "^1.116.1",
+    "@types/node": "^22.14.1",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.22.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^16.0.0",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.26.1",
+    "vite": "^6.3.0"
+  }
+}
