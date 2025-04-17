@@ -26,12 +26,17 @@ export const MemesTable: FC<MemesTableProps> = ({ memes }) => {
 
   const handleEdit = (meme: Meme) => {
     setSelectedMeme(meme)
-    setTimeout(onOpen, 0)
+    onOpen()
   }
 
   const handleSave = (updatedMeme: MemeFormData) => {
     if (!selectedMeme || !selectedMeme.id) return
     mutateAsync({ id: selectedMeme.id, meme: updatedMeme })
+    setSelectedMeme(null)
+  }
+
+  const handleClose = () => {
+    onClose()
     setSelectedMeme(null)
   }
 
@@ -62,10 +67,9 @@ export const MemesTable: FC<MemesTableProps> = ({ memes }) => {
 
       {selectedMeme && (
         <MemeFormModal
-          key={selectedMeme.id}
           meme={selectedMeme}
           isOpen={isOpen}
-          onClose={onClose}
+          onClose={handleClose}
           onSave={handleSave}
         />
       )}

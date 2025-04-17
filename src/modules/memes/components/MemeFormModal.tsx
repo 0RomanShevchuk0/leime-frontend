@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react"
+import { FC } from "react"
 import {
   Button,
   Input,
@@ -26,25 +26,17 @@ const memeFormValues = (meme: Meme | null): MemeFormData => ({
 })
 
 const MemeFormModal: FC<MemeFormModalProps> = ({ meme, isOpen, onSave, onClose }) => {
-  console.log(" meme:", meme)
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
-  } = useForm<MemeFormData>({ mode: "onChange" })
+  } = useForm<MemeFormData>({ mode: "onChange", values: memeFormValues(meme) })
 
   const onSubmit: SubmitHandler<MemeFormData> = (data) => {
     if (!meme) return
     onSave(data)
     onClose()
   }
-
-  useEffect(() => {
-    if (meme && isOpen) {
-      reset(memeFormValues(meme))
-    }
-  }, [isOpen, meme, reset])
 
   return (
     <Modal
