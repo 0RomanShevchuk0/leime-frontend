@@ -26,14 +26,13 @@ const memeFormValues = (meme: Meme | null): MemeFormData => ({
 })
 
 const MemeFormModal: FC<MemeFormModalProps> = ({ meme, isOpen, onSave, onClose }) => {
+  console.log(" meme:", meme)
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<MemeFormData>({
-    mode: "onChange",
-  })
+  } = useForm<MemeFormData>({ mode: "onChange" })
 
   const onSubmit: SubmitHandler<MemeFormData> = (data) => {
     if (!meme) return
@@ -42,7 +41,9 @@ const MemeFormModal: FC<MemeFormModalProps> = ({ meme, isOpen, onSave, onClose }
   }
 
   useEffect(() => {
-    reset(memeFormValues(meme))
+    if (meme && isOpen) {
+      reset(memeFormValues(meme))
+    }
   }, [isOpen, meme, reset])
 
   return (
