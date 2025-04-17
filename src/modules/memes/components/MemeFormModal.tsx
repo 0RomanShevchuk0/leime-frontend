@@ -26,7 +26,6 @@ const memeFormValues = (meme: Meme | null): MemeFormData => ({
 })
 
 const MemeFormModal: FC<MemeFormModalProps> = ({ meme, isOpen, onSave, onClose }) => {
-  console.log(" meme:", meme)
   const {
     register,
     handleSubmit,
@@ -34,11 +33,9 @@ const MemeFormModal: FC<MemeFormModalProps> = ({ meme, isOpen, onSave, onClose }
     formState: { errors },
   } = useForm<MemeFormData>({
     mode: "onChange",
-    values: memeFormValues(meme),
   })
 
   const onSubmit: SubmitHandler<MemeFormData> = (data) => {
-    console.log(" data:", data)
     if (!meme) return
     onSave(data)
     onClose()
