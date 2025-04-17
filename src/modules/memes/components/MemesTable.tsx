@@ -18,7 +18,7 @@ interface MemesTableProps {
 }
 
 export const MemesTable: FC<MemesTableProps> = ({ memes }) => {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure()
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   const { mutateAsync } = useMemesMutation()
 
@@ -60,12 +60,15 @@ export const MemesTable: FC<MemesTableProps> = ({ memes }) => {
         </TableBody>
       </Table>
 
-      <MemeFormModal
-        meme={selectedMeme}
-        isOpen={isOpen}
-        onClose={onOpenChange}
-        onSave={handleSave}
-      />
+      {selectedMeme && (
+        <MemeFormModal
+          key={selectedMeme.id}
+          meme={selectedMeme}
+          isOpen={isOpen}
+          onClose={onClose}
+          onSave={handleSave}
+        />
+      )}
     </>
   )
 }
