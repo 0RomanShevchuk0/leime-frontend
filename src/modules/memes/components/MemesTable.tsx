@@ -26,7 +26,7 @@ export const MemesTable: FC<MemesTableProps> = ({ memes }) => {
 
   const handleEdit = (meme: Meme) => {
     setSelectedMeme(meme)
-    onOpen()
+    setTimeout(onOpen, 0)
   }
 
   const handleSave = (updatedMeme: MemeFormData) => {
